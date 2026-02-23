@@ -17,6 +17,7 @@ const blogPosts = [
 ];
 
 const postsContainer = document.getElementById('blog-posts');
+const contributionGraph = document.getElementById('contribution-graph');
 
 function renderPosts() {
     postsContainer.innerHTML = '';
@@ -33,5 +34,35 @@ function renderPosts() {
     });
 }
 
+function renderContributionGraph() {
+    const totalDays = 365; // 약 1년치
+    const graphContainer = document.getElementById('contribution-graph');
+    
+    if (!graphContainer) return;
+    
+    graphContainer.innerHTML = '';
+    
+    // 임의의 기여도 생성 (0~4 레벨)
+    for (let i = 0; i < totalDays; i++) {
+        const day = document.createElement('div');
+        day.classList.add('day');
+        
+        // 랜덤하게 레벨 설정 (실제로는 데이터에 기반함)
+        const randomValue = Math.random();
+        let level = 0;
+        if (randomValue > 0.9) level = 4;
+        else if (randomValue > 0.8) level = 3;
+        else if (randomValue > 0.6) level = 2;
+        else if (randomValue > 0.4) level = 1;
+        
+        if (level > 0) {
+            day.setAttribute('data-level', level);
+        }
+        
+        graphContainer.appendChild(day);
+    }
+}
+
 // 초기 렌더링 실행
 renderPosts();
+renderContributionGraph();
