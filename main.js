@@ -17,7 +17,6 @@ const blogPosts = [
 ];
 
 const postsContainer = document.getElementById('blog-posts');
-const contributionGraph = document.getElementById('contribution-graph');
 
 function renderPosts() {
     postsContainer.innerHTML = '';
@@ -34,32 +33,63 @@ function renderPosts() {
     });
 }
 
+function parseKoreanDate(dateStr) {
+    const matches = dateStr.match(/(\d+)년 (\d+)월 (\d+)일/);
+    if (matches) {
+        // Note: Months are 0-indexed in JavaScript Date
+        return new Date(parseInt(matches[1]), parseInt(matches[2]) - 1, parseInt(matches[3])).toDateString();
+    }
+    return null;
+}
+
 function renderContributionGraph() {
-    const totalDays = 365; // 약 1년치
     const graphContainer = document.getElementById('contribution-graph');
-    
+    const header = document.querySelector('.contribution-header h2');
     if (!graphContainer) return;
-    
+
     graphContainer.innerHTML = '';
+
+    // 오늘 날짜 기준 (2026-02-23)
+    const today = new Date(2026, 1, 23); // 1 is February
+    const totalDays = 365;
     
-    // 임의의 기여도 생성 (0~4 레벨)
-    for (let i = 0; i < totalDays; i++) {
+    // 포스트 날짜별 카운트 맵 생성
+    const contributionMap = {};
+    blogPosts.forEach(post => {
+        const dateKey = parseKoreanDate(post.date);
+        if (dateKey) {
+            contributionMap[dateKey] = (contributionMap[dateKey] || 0) + 1;
+        }
+    });
+
+    let totalContributions = 0;
+
+    // 365일 전부터 오늘까지 순회
+    for (let i = totalDays - 1; i >= 0; i--) {
+        const date = new Date(today);
+        date.setDate(today.getDate() - i);
+        const dateKey = date.toDateString();
+        const count = contributionMap[dateKey] || 0;
+        
+        totalContributions += count;
+
         const day = document.createElement('div');
         day.classList.add('day');
         
-        // 랜덤하게 레벨 설정 (실제로는 데이터에 기반함)
-        const randomValue = Math.random();
-        let level = 0;
-        if (randomValue > 0.9) level = 4;
-        else if (randomValue > 0.8) level = 3;
-        else if (randomValue > 0.6) level = 2;
-        else if (randomValue > 0.4) level = 1;
-        
-        if (level > 0) {
+        // 기여도에 따른 레벨 설정 (1개면 1레벨, 2개면 2레벨 등)
+        if (count > 0) {
+            const level = Math.min(count, 4); 
             day.setAttribute('data-level', level);
+            day.setAttribute('title', `${dateKey}: ${count} contributions`);
+        } else {
+            day.setAttribute('title', `${dateKey}: No contributions`);
         }
         
         graphContainer.appendChild(day);
+    }
+
+    if (header) {
+        header.textContent = `${totalContributions} contributions in the last year`;
     }
 }
 
