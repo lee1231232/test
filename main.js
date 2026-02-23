@@ -73,7 +73,19 @@ const blogPosts = [
 const postsContainer = document.getElementById('blog-posts');
 const contributionSection = document.getElementById('contribution-section');
 
-function renderPosts() {
+// Navigation
+function navigate(page) {
+    if (page === 'home') {
+        renderHome();
+    } else if (page === 'about') {
+        renderAbout();
+    } else if (page === 'contact') {
+        renderContact();
+    }
+    window.scrollTo(0, 0);
+}
+
+function renderHome() {
     contributionSection.style.display = 'block';
     postsContainer.innerHTML = '';
     
@@ -89,16 +101,49 @@ function renderPosts() {
     });
 }
 
+function renderAbout() {
+    contributionSection.style.display = 'none';
+    postsContainer.innerHTML = `
+        <article class="page-content">
+            <h1>About Me</h1>
+            <p>안녕하세요! 저는 미니멀리즘과 효율적인 코딩을 추구하는 개발자입니다.</p>
+            <p>이 블로그는 제가 공부한 내용, 프로젝트 진행 과정, 그리고 기술적인 고민들을 기록하는 공간입니다.</p>
+            <h3>기술 스택</h3>
+            <ul>
+                <li>Frontend: HTML, CSS, JavaScript, React</li>
+                <li>Backend: Node.js, Express</li>
+                <li>Database: Firebase, Firestore</li>
+            </ul>
+            <p>더 나은 사용자 경험을 제공하기 위해 항상 고민하며, 깔끔하고 유지보수하기 쉬운 코드를 작성하는 것을 좋아합니다.</p>
+        </article>
+    `;
+}
+
+function renderContact() {
+    contributionSection.style.display = 'none';
+    postsContainer.innerHTML = `
+        <article class="page-content">
+            <h1>Contact</h1>
+            <p>궁금한 점이 있거나 협업 제안이 있으시면 아래 연락처로 연락 주세요!</p>
+            <div class="contact-info">
+                <p><strong>Email:</strong> example@email.com</p>
+                <p><strong>GitHub:</strong> <a href="https://github.com/lee1231232" target="_blank">github.com/lee1231232</a></p>
+                <p><strong>LinkedIn:</strong> <a href="#" target="_blank">linkedin.com/in/username</a></p>
+            </div>
+            <p>평일 기준 24시간 이내에 답변드리도록 노력하겠습니다.</p>
+        </article>
+    `;
+}
+
 function showPost(index) {
     const post = blogPosts[index];
     if (!post) return;
 
-    // 기여도 그래프 숨기기 (선택 사항)
     contributionSection.style.display = 'none';
     
     postsContainer.innerHTML = `
         <article class="full-post">
-            <a href="#" onclick="renderPosts(); return false;" class="back-link">← Back to list</a>
+            <a href="#" onclick="renderHome(); return false;" class="back-link">← Back to list</a>
             <h1>${post.title}</h1>
             <div class="post-meta">${post.date}</div>
             <div class="post-content">
@@ -165,5 +210,6 @@ function renderContributionGraph() {
 }
 
 // 초기 렌더링 실행
-renderPosts();
+renderHome();
 renderContributionGraph();
+window.navigate = navigate; // global scope for onclick
