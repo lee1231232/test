@@ -126,11 +126,10 @@ function renderContact() {
             <h1>Contact</h1>
             <p>궁금한 점이 있거나 협업 제안이 있으시면 아래 연락처로 연락 주세요!</p>
             <div class="contact-info">
-                <p><strong>Email:</strong> example@email.com</p>
+                <p><strong>Email:</strong> dlqhdrn777@gmail.com</p>
                 <p><strong>GitHub:</strong> <a href="https://github.com/lee1231232" target="_blank">github.com/lee1231232</a></p>
-                <p><strong>LinkedIn:</strong> <a href="#" target="_blank">linkedin.com/in/username</a></p>
+                <p><strong>LinkedIn:</strong> <a href="#" target="_blank">linkedin.com/in/bong-gu-‍lee-997bbb305</a></p>
             </div>
-            <p>평일 기준 24시간 이내에 답변드리도록 노력하겠습니다.</p>
         </article>
     `;
 }
