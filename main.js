@@ -126,13 +126,22 @@ function renderHome() {
     contributionSection.style.display = 'block';
     postsContainer.innerHTML = '';
     
-    blogPosts.forEach((post, index) => {
+    // 게시물을 날짜순(최신순)으로 정렬
+    const sortedPosts = [...blogPosts].sort((a, b) => {
+        const dateA = new Date(parseKoreanDate(a.date));
+        const dateB = new Date(parseKoreanDate(b.date));
+        return dateB - dateA;
+    });
+
+    sortedPosts.forEach((post) => {
+        // 원본 배열에서의 인덱스를 찾아 showPost에 전달
+        const originalIndex = blogPosts.findIndex(p => p.id === post.id);
         const article = document.createElement('article');
         article.innerHTML = `
-            <h2><a href="#" onclick="showPost(${index}); return false;">${post.title}</a></h2>
+            <h2><a href="#" onclick="showPost(${originalIndex}); return false;">${post.title}</a></h2>
             <div class="post-meta">${post.date}</div>
             <p class="post-excerpt">${post.excerpt}</p>
-            <a href="#" class="read-more" onclick="showPost(${index}); return false;">Read more →</a>
+            <a href="#" class="read-more" onclick="showPost(${originalIndex}); return false;">Read more →</a>
         `;
         postsContainer.appendChild(article);
     });
@@ -279,7 +288,7 @@ function renderContributionGraph() {
 
     graphContainer.innerHTML = '';
 
-    const today = new Date(2026, 1, 23);
+    const today = new Date(2026, 1, 24); // 2월 24일로 업데이트
     const totalDays = 365;
     
     const contributionMap = {};
