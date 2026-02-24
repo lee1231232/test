@@ -60,9 +60,24 @@
             </div>
         </section>
 
-        <main id="blog-posts">
-            <!-- Blog posts will be rendered here by main.js -->
-        </main>
+        <div class="content-wrapper">
+            <main id="blog-posts">
+                <!-- Blog posts will be rendered here by main.js -->
+            </main>
+
+            <aside class="sidebar">
+                <div class="sidebar-widget">
+                    <h3>Categories</h3>
+                    <ul id="categories-list">
+                        <li><a href="#" onclick="filterByCategory('All'); return false;">All Posts</a></li>
+                        <li><a href="#" onclick="filterByCategory('Design'); return false;">Design</a></li>
+                        <li><a href="#" onclick="filterByCategory('Development'); return false;">Development</a></li>
+                        <li><a href="#" onclick="filterByCategory('Trends'); return false;">Trends</a></li>
+                        <li><a href="#" onclick="filterByCategory('Career'); return false;">Career</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
 
         <footer>
             <div class="footer-links">

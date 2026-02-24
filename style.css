@@ -239,6 +239,79 @@ article h2 a:hover {
     border-top: 1px solid var(--border-color);
 }
 
+/* Content Layout */
+.content-wrapper {
+    display: flex;
+    gap: 40px;
+}
+
+main {
+    flex: 3;
+}
+
+.sidebar {
+    flex: 1;
+    min-width: 200px;
+}
+
+.sidebar-widget {
+    background-color: var(--bg-color);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    position: sticky;
+    top: 20px;
+}
+
+.sidebar-widget h3 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: var(--heading-color);
+}
+
+.sidebar-widget ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-widget li {
+    margin-bottom: 10px;
+}
+
+.sidebar-widget a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.sidebar-widget a:hover {
+    color: var(--accent-color);
+}
+
+/* Post Tags */
+.post-category-tag {
+    display: inline-block;
+    background-color: var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        order: -1;
+    }
+}
+
 /* Footer */
 footer {
     text-align: center;

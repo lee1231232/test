@@ -27,6 +27,7 @@ const blogPosts = [
         id: 0,
         title: "미니멀리즘 디자인의 힘: 왜 덜어내는 것이 더 많은 것을 주는가",
         date: "2026년 2월 23일",
+        category: "Design",
         excerpt: "복잡한 세상에서 단순함은 강력한 무기입니다. 웹 디자인에서 미니멀리즘이 왜 중요한지, 그리고 어떻게 효과적으로 적용할 수 있는지 알아봅니다.",
         content: `
             <p>미니멀리즘은 단순히 요소를 제거하는 것이 아니라, 본질에 집중하는 것입니다. 웹 디자인에서 미니멀리즘은 다음과 같은 장점이 있습니다.</p>
@@ -42,6 +43,7 @@ const blogPosts = [
         id: 1,
         title: "효율적인 코딩 습관 5가지: 지속 가능한 개발을 위한 가이드",
         date: "2026년 2월 20일",
+        category: "Development",
         excerpt: "좋은 코드는 단순히 작동하는 코드가 아닙니다. 유지보수가 쉽고 가독성이 좋은 코드를 작성하기 위한 5가지 핵심 습관을 공유합니다.",
         content: `
             <p>개발자로서 성장하기 위해서는 단순히 기술을 배우는 것보다 좋은 습관을 들이는 것이 중요합니다. 제가 실천하고 있는 5가지 핵심 습관입니다.</p>
@@ -61,9 +63,10 @@ const blogPosts = [
         id: 2,
         title: "2026년 웹 개발 트렌드 분석: AI와 웹 어셈블리의 결합",
         date: "2026년 2월 24일",
+        category: "Trends",
         excerpt: "급변하는 웹 생태계에서 2026년에 주목해야 할 주요 기술 트렌드를 살펴봅니다. AI 통합과 고성능 웹 애플리케이션의 미래를 진단합니다.",
         content: `
-            <p>2026년 웹 개발 시장은 큰 변화를 맞이하고 있습니다. 특히 AI 기반의 코드 생성 도구와 WebAssembly의 발전이 눈에 띕니다.</p>
+            <p>2026년 웹 개발 시장은 큰 변화를 맞이하고 있습니다. 특히 AI 기반의 코드 생성 도구와 WebAssembly의 발전이 눈에 땂니다.</p>
             <h3>1. AI 브라우저 네이티브 통합</h3>
             <p>이제 브라우저 자체적으로 가벼운 AI 모델을 실행할 수 있게 되었습니다. 이를 통해 서버 비용을 줄이면서도 개인화된 사용자 경험을 실시간으로 제공할 수 있습니다.</p>
             <h3>2. WebAssembly(Wasm)의 대중화</h3>
@@ -75,9 +78,10 @@ const blogPosts = [
         id: 3,
         title: "성공적인 사이드 프로젝트를 위한 팁: 기획부터 배포까지",
         date: "2026년 2월 18일",
+        category: "Career",
         excerpt: "사이드 프로젝트를 끝까지 완수하지 못하는 이유와 이를 극복하고 성공적으로 런칭하기 위한 전략을 알아봅니다.",
         content: `
-            <p>많은 개발자들이 사이드 프로젝트를 시작하지만 배포까지 성공하는 경우는 드뭅니다. 무엇이 차이를 만들까요?</p>
+            <p>많은 개발자들이 사이드 프로젝트를 시작하지만 배포까지 성공하는 경우는 드눕니다. 무엇이 차이를 만들까요?</p>
             <h3>작게 시작하기 (MVP 전략)</h3>
             <p>처음부터 모든 기능을 넣으려고 하지 마세요. 핵심 기능 하나만 완벽하게 구현하는 것을 목표로 삼으세요.</p>
             <h3>꾸준함의 힘</h3>
@@ -89,6 +93,7 @@ const blogPosts = [
         id: 4,
         title: "사용자 경험을 결정짓는 웹 성능 최적화 기법",
         date: "2026년 2월 24일",
+        category: "Development",
         excerpt: "웹사이트의 로딩 속도는 사용자 이탈률과 직결됩니다. 2026년 환경에 맞는 최신 웹 성능 최적화 전략과 도구들을 소개합니다.",
         content: `
             <p>웹 성능 최적화는 단순히 기술적인 만족을 넘어 비즈니스 성공의 핵심 요소입니다. 로딩 시간이 1초 늘어날 때마다 전환율은 급격히 떨어집니다. 효과적인 최적화 방법들을 살펴보겠습니다.</p>
@@ -105,6 +110,7 @@ const blogPosts = [
 
 const postsContainer = document.getElementById('blog-posts');
 const contributionSection = document.getElementById('contribution-section');
+let currentCategory = 'All';
 
 // Navigation
 function navigate(page) {
@@ -122,22 +128,37 @@ function navigate(page) {
     window.scrollTo(0, 0);
 }
 
+function filterByCategory(category) {
+    currentCategory = category;
+    navigate('home');
+}
+
 function renderHome() {
     contributionSection.style.display = 'block';
     postsContainer.innerHTML = '';
     
+    // 필터링 적용
+    const filteredPosts = currentCategory === 'All' 
+        ? blogPosts 
+        : blogPosts.filter(post => post.category === currentCategory);
+
     // 게시물을 날짜순(최신순)으로 정렬
-    const sortedPosts = [...blogPosts].sort((a, b) => {
+    const sortedPosts = [...filteredPosts].sort((a, b) => {
         const dateA = new Date(parseKoreanDate(a.date));
         const dateB = new Date(parseKoreanDate(b.date));
         return dateB - dateA;
     });
 
+    if (sortedPosts.length === 0) {
+        postsContainer.innerHTML = '<p>No posts found in this category.</p>';
+        return;
+    }
+
     sortedPosts.forEach((post) => {
-        // 원본 배열에서의 인덱스를 찾아 showPost에 전달
         const originalIndex = blogPosts.findIndex(p => p.id === post.id);
         const article = document.createElement('article');
         article.innerHTML = `
+            <div class="post-category-tag">${post.category}</div>
             <h2><a href="#" onclick="showPost(${originalIndex}); return false;">${post.title}</a></h2>
             <div class="post-meta">${post.date}</div>
             <p class="post-excerpt">${post.excerpt}</p>
@@ -231,6 +252,7 @@ function showPost(index) {
     postsContainer.innerHTML = `
         <article class="full-post">
             <a href="#" onclick="renderHome(); return false;" class="back-link">← Back to list</a>
+            <div class="post-category-tag">${post.category}</div>
             <h1>${post.title}</h1>
             <div class="post-meta">${post.date}</div>
             <div class="post-content">
@@ -331,3 +353,4 @@ function renderContributionGraph() {
 renderHome();
 renderContributionGraph();
 window.navigate = navigate; // global scope for onclick
+window.filterByCategory = filterByCategory; // global scope for onclick
