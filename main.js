@@ -148,9 +148,40 @@ function showPost(index) {
             <div class="post-content">
                 ${post.content}
             </div>
+            <div id="disqus_thread"></div>
         </article>
     `;
+    loadDisqus(post.id, post.title);
     window.scrollTo(0, 0);
+}
+
+function loadDisqus(postId, postTitle) {
+    const disqus_shortname = 'leeblog-2'; // 제공해주신 스크립트의 shortname 적용
+    const page_url = window.location.origin + '/#!post/' + postId;
+    const page_identifier = 'post-' + postId;
+
+    if (typeof DISQUS !== 'undefined') {
+        // 이미 로드된 경우, 새로운 포스트 정보로 초기화 (SPA 방식)
+        DISQUS.reset({
+            reload: true,
+            config: function () {
+                this.page.identifier = page_identifier;
+                this.page.url = page_url;
+                this.page.title = postTitle;
+            }
+        });
+    } else {
+        // 처음 로드하는 경우
+        window.disqus_config = function () {
+            this.page.identifier = page_identifier;
+            this.page.url = page_url;
+            this.page.title = postTitle;
+        };
+        const d = document, s = d.createElement('script');
+        s.src = `https://${disqus_shortname}.disqus.com/embed.js`;
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    }
 }
 
 function parseKoreanDate(dateStr) {

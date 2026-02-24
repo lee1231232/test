@@ -232,6 +232,13 @@ article h2 a:hover {
     text-decoration: underline;
 }
 
+/* Disqus */
+#disqus_thread {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border-color);
+}
+
 /* Footer */
 footer {
     text-align: center;
