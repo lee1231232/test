@@ -249,6 +249,45 @@ footer {
     margin-top: 60px;
 }
 
+.footer-links {
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: var(--meta-text);
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
+}
+
+.page-content h1 {
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+}
+
+.page-content h3 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.page-content p {
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.contact-info {
+    background-color: var(--bg-color);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin: 20px 0;
+}
+
 /* Contribution Graph */
 #contribution-section {
     margin-bottom: 60px;

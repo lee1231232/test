@@ -25,47 +25,64 @@ themeToggle.addEventListener('click', () => {
 const blogPosts = [
     {
         id: 0,
-        title: "미니멀리즘 디자인의 힘",
+        title: "미니멀리즘 디자인의 힘: 왜 덜어내는 것이 더 많은 것을 주는가",
         date: "2026년 2월 23일",
         excerpt: "복잡한 세상에서 단순함은 강력한 무기입니다. 웹 디자인에서 미니멀리즘이 왜 중요한지, 그리고 어떻게 효과적으로 적용할 수 있는지 알아봅니다.",
         content: `
             <p>미니멀리즘은 단순히 요소를 제거하는 것이 아니라, 본질에 집중하는 것입니다. 웹 디자인에서 미니멀리즘은 다음과 같은 장점이 있습니다.</p>
             <ul>
-                <li>사용자의 시선을 핵심 콘텐츠로 유도합니다.</li>
-                <li>로딩 속도가 빨라져 사용자 경험이 개선됩니다.</li>
-                <li>모바일 환경에서 가독성이 높아집니다.</li>
+                <li><strong>사용자의 시선을 핵심 콘텐츠로 유도:</strong> 시각적 소음을 제거하면 사용자가 우리가 의도한 핵심 메시지에 더 빨리 도달할 수 있습니다.</li>
+                <li><strong>로딩 속도 개선:</strong> 불필요한 이미지와 복잡한 스크립트를 줄이면 사이트 성능이 비약적으로 향상됩니다. 이는 SEO(검색 엔진 최적화)에도 긍정적인 영향을 미칩니다.</li>
+                <li><strong>모바일 환경 최적화:</strong> 작은 화면에서 미니멀한 디자인은 가독성을 극대화합니다.</li>
             </ul>
-            <p>불필요한 장식을 줄이고 여백을 활용함으로써, 우리는 더 강력한 메시지를 전달할 수 있습니다.</p>
+            <p>불필요한 장식을 줄이고 여백을 활용함으로써, 우리는 더 강력한 메시지를 전달할 수 있습니다. 다음 프로젝트에서는 '과연 이 요소가 정말 필요한가?'라고 자문해보세요.</p>
         `
     },
     {
         id: 1,
-        title: "효율적인 코딩 습관 5가지",
+        title: "효율적인 코딩 습관 5가지: 지속 가능한 개발을 위한 가이드",
         date: "2026년 2월 20일",
         excerpt: "좋은 코드는 단순히 작동하는 코드가 아닙니다. 유지보수가 쉽고 가독성이 좋은 코드를 작성하기 위한 5가지 핵심 습관을 공유합니다.",
         content: `
-            <p>개발자로서 성장하기 위해서는 단순히 기술을 배우는 것보다 좋은 습관을 들이는 것이 중요합니다.</p>
+            <p>개발자로서 성장하기 위해서는 단순히 기술을 배우는 것보다 좋은 습관을 들이는 것이 중요합니다. 제가 실천하고 있는 5가지 핵심 습관입니다.</p>
             <h3>1. 의미 있는 변수 이름 짓기</h3>
-            <p>코드 자체가 설명서가 되어야 합니다.</p>
-            <h3>2. 한 함수는 한 가지 일만 하기</h3>
-            <p>함수가 작을수록 테스트와 유지보수가 쉬워집니다.</p>
+            <p>코드 자체가 설명서가 되어야 합니다. <code>a</code>, <code>b</code> 같은 변수 이름 대신 <code>userAge</code>, <code>isLoggedIn</code>과 같은 명확한 이름을 사용하세요.</p>
+            <h3>2. 한 함수는 한 가지 일만 하기 (Single Responsibility)</h3>
+            <p>함수가 작을수록 테스트와 유지보수가 쉬워집니다. 함수가 너무 길어진다면 여러 개로 분리하는 신호입니다.</p>
             <h3>3. 일찍 리턴하기 (Early Return)</h3>
-            <p>중첩된 if문을 줄여 가독성을 높입니다.</p>
+            <p>중첩된 <code>if</code>문을 줄여 코드의 깊이를 얕게 유지하세요. 예외 상황을 먼저 처리하고 리턴하면 메인 로직이 더 명확해집니다.</p>
             <h3>4. 주석보다는 코드 자체로 말하기</h3>
-            <p>코드가 복잡해서 주석이 필요하다면 리팩토링을 고민해보세요.</p>
+            <p>코드가 복잡해서 주석이 필요하다면 리팩토링을 고민해보세요. 명확한 코드는 주석 없이도 의도가 전달됩니다.</p>
             <h3>5. 일관된 스타일 유지하기</h3>
-            <p>팀의 코딩 컨벤션을 준수하는 것은 협업의 기본입니다.</p>
+            <p>팀의 코딩 컨벤션을 준수하는 것은 협업의 기본입니다. Prettier나 ESLint 같은 도구를 활용하세요.</p>
         `
     },
     {
         id: 2,
-        title: "새로운 프로젝트를 시작하며",
-        date: "2026년 2월 15일",
-        excerpt: "새로운 기술 스택으로 사이드 프로젝트를 시작했습니다. 이번 프로젝트에서 겪은 도전과 배운 점들을 기록으로 남겨봅니다.",
+        title: "2026년 웹 개발 트렌드 분석: AI와 웹 어셈블리의 결합",
+        date: "2026년 2월 24일",
+        excerpt: "급변하는 웹 생태계에서 2026년에 주목해야 할 주요 기술 트렌드를 살펴봅니다. AI 통합과 고성능 웹 애플리케이션의 미래를 진단합니다.",
         content: `
-            <p>이번 프로젝트의 목표는 Firebase와 React를 결합하여 실시간 데이터 처리를 구현하는 것이었습니다.</p>
-            <p>가장 큰 도전 과제는 데이터 구조 설계였습니다. NoSQL 데이터베이스인 Firestore의 특성을 이해하고 쿼리 효율성을 높이기 위해 많은 고민을 했습니다.</p>
-            <p>앞으로 이 블로그를 통해 진행 상황을 꾸준히 공유할 예정입니다. 기술적인 문제 해결뿐만 아니라 기획 단계에서의 고민들도 함께 다루고 싶습니다.</p>
+            <p>2026년 웹 개발 시장은 큰 변화를 맞이하고 있습니다. 특히 AI 기반의 코드 생성 도구와 WebAssembly의 발전이 눈에 띕니다.</p>
+            <h3>1. AI 브라우저 네이티브 통합</h3>
+            <p>이제 브라우저 자체적으로 가벼운 AI 모델을 실행할 수 있게 되었습니다. 이를 통해 서버 비용을 줄이면서도 개인화된 사용자 경험을 실시간으로 제공할 수 있습니다.</p>
+            <h3>2. WebAssembly(Wasm)의 대중화</h3>
+            <p>복잡한 계산이나 이미지 처리 작업을 브라우저에서 네이티브 수준의 속도로 실행할 수 있게 되면서, 과거에는 데스크톱 앱에서만 가능했던 일들이 웹에서도 가능해지고 있습니다.</p>
+            <p>우리는 이러한 변화에 발맞춰 지속적으로 학습하고 적응해야 합니다. 기술은 도구일 뿐, 본질은 사용자 문제를 해결하는 것임을 잊지 말아야 합니다.</p>
+        `
+    },
+    {
+        id: 3,
+        title: "성공적인 사이드 프로젝트를 위한 팁: 기획부터 배포까지",
+        date: "2026년 2월 18일",
+        excerpt: "사이드 프로젝트를 끝까지 완수하지 못하는 이유와 이를 극복하고 성공적으로 런칭하기 위한 전략을 알아봅니다.",
+        content: `
+            <p>많은 개발자들이 사이드 프로젝트를 시작하지만 배포까지 성공하는 경우는 드뭅니다. 무엇이 차이를 만들까요?</p>
+            <h3>작게 시작하기 (MVP 전략)</h3>
+            <p>처음부터 모든 기능을 넣으려고 하지 마세요. 핵심 기능 하나만 완벽하게 구현하는 것을 목표로 삼으세요.</p>
+            <h3>꾸준함의 힘</h3>
+            <p>하루에 30분이라도 매일 코딩하는 습관이 중요합니다. 큰 덩어리의 시간을 내기보다 짧은 시간이라도 지속성을 유지하세요.</p>
+            <p>프로젝트를 완성하고 나면 그 결과물을 공개하고 피드백을 받으세요. 이 과정이 여러분을 진정한 성숙한 개발자로 만들어 줄 것입니다.</p>
         `
     }
 ];
@@ -81,6 +98,10 @@ function navigate(page) {
         renderAbout();
     } else if (page === 'contact') {
         renderContact();
+    } else if (page === 'privacy') {
+        renderPrivacy();
+    } else if (page === 'terms') {
+        renderTerms();
     }
     window.scrollTo(0, 0);
 }
@@ -106,15 +127,15 @@ function renderAbout() {
     postsContainer.innerHTML = `
         <article class="page-content">
             <h1>About Me</h1>
-            <p>안녕하세요! 저는 미니멀리즘과 효율적인 코딩을 추구하는 개발자입니다.</p>
-            <p>이 블로그는 제가 공부한 내용, 프로젝트 진행 과정, 그리고 기술적인 고민들을 기록하는 공간입니다.</p>
-            <h3>기술 스택</h3>
+            <p>안녕하세요! 저는 미니멀리즘과 효율적인 코딩을 추구하는 개발자 이봉구(Bong-gu Lee)입니다.</p>
+            <p>이 블로그는 제가 공부한 내용, 프로젝트 진행 과정, 그리고 기술적인 고민들을 기록하는 공간입니다. 단순한 지식 전달을 넘어, 독창적이고 가치 있는 정보를 제공하고자 노력합니다.</p>
+            <h3>전문 분야</h3>
             <ul>
-                <li>Frontend: HTML, CSS, JavaScript, React</li>
-                <li>Backend: Node.js, Express</li>
-                <li>Database: Firebase, Firestore</li>
+                <li><strong>Frontend Development:</strong> React, Vue.js, Vanilla JavaScript, CSS Architecture</li>
+                <li><strong>Backend Engineering:</strong> Node.js, Express, Firebase (Cloud Functions, Firestore)</li>
+                <li><strong>UI/UX Design:</strong> Minimalist aesthetics, focus on accessibility and performance</li>
             </ul>
-            <p>더 나은 사용자 경험을 제공하기 위해 항상 고민하며, 깔끔하고 유지보수하기 쉬운 코드를 작성하는 것을 좋아합니다.</p>
+            <p>더 나은 사용자 경험을 제공하기 위해 항상 고민하며, 깔끔하고 유지보수하기 쉬운 코드를 작성하는 것을 좋아합니다. 이 블로그를 통해 얻은 통찰이 여러분의 개발 여정에도 도움이 되기를 바랍니다.</p>
         </article>
     `;
 }
@@ -124,12 +145,55 @@ function renderContact() {
     postsContainer.innerHTML = `
         <article class="page-content">
             <h1>Contact</h1>
-            <p>궁금한 점이 있거나 협업 제안이 있으시면 아래 연락처로 연락 주세요!</p>
+            <p>궁금한 점이 있거나 협업 제안이 있으시면 아래 연락처로 언제든 편하게 연락 주세요!</p>
             <div class="contact-info">
-                <p><strong>Email:</strong> dlqhdrn777@gmail.com</p>
+                <p><strong>Email:</strong> <a href="mailto:dlqhdrn777@gmail.com">dlqhdrn777@gmail.com</a></p>
                 <p><strong>GitHub:</strong> <a href="https://github.com/lee1231232" target="_blank">github.com/lee1231232</a></p>
-                <p><strong>LinkedIn:</strong> <a href="#" target="_blank">linkedin.com/in/bong-gu-‍lee-997bbb305</a></p>
+                <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/bong-gu-lee-997bbb305" target="_blank">linkedin.com/in/bong-gu-lee</a></p>
             </div>
+            <p>또한 블로그 포스팅 하단의 댓글을 통해서도 소통하실 수 있습니다.</p>
+        </article>
+    `;
+}
+
+function renderPrivacy() {
+    contributionSection.style.display = 'none';
+    postsContainer.innerHTML = `
+        <article class="page-content">
+            <h1>Privacy Policy</h1>
+            <p>Last updated: February 24, 2026</p>
+            <p>This Privacy Policy describes our policies and procedures on the collection, use and disclosure of your information when you use the Service and tells you about your privacy rights and how the law protects you.</p>
+            
+            <h3>1. Personal Data Collection</h3>
+            <p>We do not collect any personal data directly from our visitors. However, we use third-party services like Google AdSense and Disqus which may collect information for their respective services.</p>
+            
+            <h3>2. Cookies</h3>
+            <p>We use Cookies and similar tracking technologies to track the activity on our service and store certain information. Tracking technologies used are beacons, tags, and scripts to collect and track information and to improve and analyze our service.</p>
+            
+            <h3>3. Google AdSense</h3>
+            <p>Google, as a third-party vendor, uses cookies to serve ads on our site. Google's use of the DART cookie enables it to serve ads to our users based on their visit to our site and other sites on the Internet. Users may opt out of the use of the DART cookie by visiting the Google ad and content network privacy policy.</p>
+            
+            <h3>4. Disqus Comments</h3>
+            <p>If you choose to use the comment section, Disqus may collect information. Please refer to Disqus's privacy policy for more details.</p>
+        </article>
+    `;
+}
+
+function renderTerms() {
+    contributionSection.style.display = 'none';
+    postsContainer.innerHTML = `
+        <article class="page-content">
+            <h1>Terms of Service</h1>
+            <p>By accessing this website, you are agreeing to be bound by these website Terms and Conditions of Use, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws.</p>
+            
+            <h3>1. Use License</h3>
+            <p>Permission is granted to temporarily download one copy of the materials (information or software) on Bong-gu Lee's Minimal Blog for personal, non-commercial transitory viewing only.</p>
+            
+            <h3>2. Disclaimer</h3>
+            <p>The materials on this website are provided "as is". We make no warranties, expressed or implied, and hereby disclaim and negate all other warranties, including without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.</p>
+            
+            <h3>3. Limitations</h3>
+            <p>In no event shall Bong-gu Lee or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on the blog.</p>
         </article>
     `;
 }

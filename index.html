@@ -3,7 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Blog</title>
+    <title>Bong-gu Lee's Minimal Blog - Development & Minimalism</title>
+    <meta name="description" content="미니멀리즘 디자인과 효율적인 코딩 습관을 탐구하는 이봉구의 기술 블로그입니다. 웹 개발, 디자인, 그리고 더 나은 사용자 경험에 대한 생각을 공유합니다.">
+    <meta name="keywords" content="개발 블로그, 웹 디자인, 미니멀리즘, 코딩 습관, 리액트, 자바스크립트, 웹 개발자">
+    <meta name="author" content="Bong-gu Lee">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lee1231232.github.io/test/">
+    <meta property="og:title" content="Bong-gu Lee's Minimal Blog">
+    <meta property="og:description" content="미니멀리즘 디자인과 효율적인 코딩 습관을 탐구하는 기술 블로그">
+    <meta property="og:image" content="https://lee1231232.github.io/test/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://lee1231232.github.io/test/">
+    <meta property="twitter:title" content="Bong-gu Lee's Minimal Blog">
+    <meta property="twitter:description" content="미니멀리즘 디자인과 효율적인 코딩 습관을 탐구하는 기술 블로그">
+
     <meta name="google-adsense-account" content="ca-pub-3385579681879862">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3385579681879862"
      crossorigin="anonymous"></script>
@@ -48,7 +65,13 @@
         </main>
 
         <footer>
-            <p>&copy; 2026 My Minimal Blog. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#" onclick="navigate('privacy'); return false;">Privacy Policy</a>
+                <a href="#" onclick="navigate('terms'); return false;">Terms of Service</a>
+                <a href="#" onclick="navigate('about'); return false;">About</a>
+                <a href="#" onclick="navigate('contact'); return false;">Contact</a>
+            </div>
+            <p>&copy; 2026 Bong-gu Lee's Minimal Blog. All rights reserved.</p>
         </footer>
     </div>
     <script src="main.js"></script>
