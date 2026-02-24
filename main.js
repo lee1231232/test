@@ -152,7 +152,7 @@ function renderAbout() {
     postsContainer.innerHTML = `
         <article class="page-content">
             <h1>About Me</h1>
-            <p>안녕하세요! 저는 미니멀리즘과 효율적인 코딩을 추구하는 개발자 이봉구(Bong-gu Lee)입니다.</p>
+            <p>안녕하세요! 저는 미니멀리즘과 효율적인 코딩을 추구하는 개발자 Lee입니다.</p>
             <p>이 블로그는 제가 공부한 내용, 프로젝트 진행 과정, 그리고 기술적인 고민들을 기록하는 공간입니다. 단순한 지식 전달을 넘어, 독창적이고 가치 있는 정보를 제공하고자 노력합니다.</p>
             <h3>전문 분야</h3>
             <ul>
@@ -172,9 +172,8 @@ function renderContact() {
             <h1>Contact</h1>
             <p>궁금한 점이 있거나 협업 제안이 있으시면 아래 연락처로 언제든 편하게 연락 주세요!</p>
             <div class="contact-info">
-                <p><strong>Email:</strong> <a href="mailto:dlqhdrn777@gmail.com">dlqhdrn777@gmail.com</a></p>
+                <p><strong>Email:</strong> <a href="mailto:honoer612@gmail.com">honoer612@gmail.com</a></p>
                 <p><strong>GitHub:</strong> <a href="https://github.com/lee1231232" target="_blank">github.com/lee1231232</a></p>
-                <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/bong-gu-lee-997bbb305" target="_blank">linkedin.com/in/bong-gu-lee</a></p>
             </div>
             <p>또한 블로그 포스팅 하단의 댓글을 통해서도 소통하실 수 있습니다.</p>
         </article>
