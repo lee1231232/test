@@ -105,6 +105,105 @@ const blogPosts = [
             <p>사용자가 현재 페이지에서 필요로 하지 않는 JavaScript 코드를 나중에 로드하도록 분리하세요. 이는 초기 번들 크기를 줄여 브라우저가 첫 화면을 렌더링하는 시간을 획기적으로 개선합니다.</p>
             <p>성능 측정 도구인 Lighthouse나 Web Vitals를 정기적으로 체크하며 지표를 관리하는 습관을 들이시기 바랍니다. 빠르고 쾌적한 웹사이트는 최고의 사용자 서비스입니다.</p>
         `
+    },
+    {
+        id: 5,
+        title: "[GC 기초] GC 검출기: 정체와 양을 밝히는 '지식의 눈' 👁️‍🗨️",
+        date: "2026년 2월 25일",
+        category: "GC",
+        excerpt: "기체 크로마토그래피(GC) 시스템에서 성분의 정체와 양을 밝히는 마지막 관문인 검출기의 핵심 원리와 정성/정량 분석의 차이를 알아봅니다.",
+        content: `
+            <h3>1. 도입: GC 검출기란 무엇인가?</h3>
+            <p>기체 크로마토그래피(GC) 시스템의 여정에서 <strong>검출기(Detector)</strong>는 긴 터널(컬럼)을 빠져나온 성분들을 맞이하는 마지막 관문이자, 보이지 않는 화학 세계를 읽어내는 <strong>'감각 기관'</strong>입니다.</p>
+            <p>검출기가 성분을 발견하는 순간, 우리는 비로소 성분이 <strong>'무엇(정체)'</strong>인지와 <strong>'얼마나(함량)'</strong> 있는지라는 두 가지 핵심 지식을 얻게 됩니다.</p>
+            <hr>
+            <h3>2. 검출기의 두 가지 임무: 정성 분석과 정량 분석</h3>
+            <h4>① 정성 분석 (Qualitative Analysis): "너의 정체는 무엇이냐?" 🔍</h4>
+            <ul>
+                <li><strong>원리:</strong> 성분이 컬럼에 머무르는 시간인 <strong>머무름 시간(Retention Time)</strong>을 이용합니다. 특정 조건에서 표준 물질과 미지 시료의 피크가 나타나는 시간을 비교하여 성분을 특정합니다.</li>
+            </ul>
+            <h4>② 정량 분석 (Quantitative Analysis): "양은 얼마나 들어있느냐?" ⚖️</h4>
+            <ul>
+                <li><strong>원리:</strong> 그래프 피크의 <strong>면적(Area)</strong>을 측정합니다. 면적은 해당 성분의 양과 비례합니다.</li>
+            </ul>
+            <p>💡 <strong>왜 높이보다 '면적'일까요?</strong> 시료 성분들은 컬럼을 지나며 확산 현상 때문에 옆으로 퍼지는(Broadening) 성질이 있습니다. 면적은 확산된 전체 물리적 양을 정확히 반영하기 때문에 훨씬 신뢰할 수 있는 데이터가 됩니다.</p>
+        `
+    },
+    {
+        id: 6,
+        title: "[GC 검출기] 범용의 제왕 FID부터 온도 민감 센서 TCD까지 🔥🌡️",
+        date: "2026년 2월 25일",
+        category: "GC",
+        excerpt: "가장 널리 쓰이는 FID(불꽃 이온화 검출기)와 비파괴 방식의 TCD(열전도도 검출기)의 작동 원리와 특징을 상세히 살펴봅니다.",
+        content: `
+            <h3>3. [범용] FID (불꽃 이온화 검출기): 탄소 성분을 태우는 '불꽃 탐정' 🔥</h3>
+            <p>FID는 유기 화합물을 분석할 때 전 세계적으로 가장 사랑받는 <strong>'범용 검출기'</strong>입니다.</p>
+            <ul>
+                <li><strong>핵심 작동 원리:</strong>
+                    <ol>
+                        <li>수소와 공기를 연료로 하는 뜨거운 불꽃 속으로 시료가 진입합니다.</li>
+                        <li>탄소(C) 원자가 열분해되어 CH 라디칼이 형성되고, 이것이 산소와 반응하여 CH+ 이온을 생성합니다.</li>
+                        <li>생성된 이온들의 흐름을 전류로 측정하여 신호로 변환합니다.</li>
+                    </ol>
+                </li>
+            </ul>
+            <p>🌟 <strong>전문가의 Tip!</strong> FID 불꽃이 정말 켜져 있는지 궁금하신가요? 차가운 스패너를 검출기 배기구에 살짝 대보세요. 수증기가 맺혀 뿌옇게 변한다면 불꽃이 잘 타오르고 있다는 증거입니다!</p>
+            <hr>
+            <h3>4. [범용] TCD (열전도도 검출기): 열의 흐름을 읽는 '온도 민감 센서' 🌡️</h3>
+            <p>TCD는 모든 성분에 반응하는 가장 고전적이면서도 안전한 검출기입니다. 뜨겁게 달궈진 필라멘트 옆을 기체가 지나가며 열을 얼마나 빨리 식히느냐를 측정합니다.</p>
+            <ul>
+                <li><strong>핵심 원리:</strong> 열전도도가 매우 높은 <strong>헬륨(He)</strong>을 운반 기체로 사용합니다. 분석 성분이 섞여 들어오면 전체 기체의 열전도도가 떨어지고, 필라멘트의 온도가 상승하면서 전기 저항 값이 변하게 됩니다.</li>
+                <li><strong>장점:</strong> 불꽃을 쓰지 않아 안전하며, 시료를 파괴하지 않습니다. 유기물뿐 아니라 공기, 수분 등 모든 물질을 감지할 수 있습니다.</li>
+            </ul>
+        `
+    },
+    {
+        id: 7,
+        title: "[GC 검출기] 특수 성분 추적: ECD, NPD, FPD 그리고 MSD의 세계 🧲🕵️‍♂️",
+        date: "2026년 2월 25일",
+        category: "GC",
+        excerpt: "할로겐, 질소, 인, 황 등 특정 원소에 민감한 선택적 검출기들과 MSD의 매력을 탐구하고 시료에 맞는 선택 가이드를 확인하세요.",
+        content: `
+            <h3>5. [선택] ECD (전자 포획 검출기): 전자를 낚아채는 '자석 낚시꾼' 🧲</h3>
+            <p>ECD는 전자를 유난히 좋아하는 특정 성분(할로겐 화합물 등)에만 매우 예민하게 반응합니다.</p>
+            <ul>
+                <li><strong>핵심 원리:</strong> 방사선원(Ni-63)이 내뿜는 베타선이 전자 구름을 형성합니다. 전자를 좋아하는 성분이 이 구름 사이를 지나가면 전자를 낚아채 버리며, 이때 흐르던 전류가 줄어드는 <strong>'신호의 구멍'</strong>을 측정합니다.</li>
+            </ul>
+            <hr>
+            <h3>6. 특정 원소 전문 탐정단: NPD, FPD, MSD 🕵️‍♂️</h3>
+            <p><strong>🧪 NPD (질소·인 검출기):</strong> 알칼리 금속 염 비드를 가열해 질소(N)나 인(P)을 포함한 성분만 선택적으로 이온화하여 분석합니다.</p>
+            <p><strong>✨ FPD (불꽃 광도 검출기):</strong> 성분을 태울 때 발생하는 특유의 빛깔을 포착합니다. 황(S)은 394 nm, 인(P)은 526 nm 파장을 측정합니다.</p>
+            <p><strong>🧬 MSD (질량 분석 검출기):</strong> 성분을 잘게 쪼개 무게(m/z)를 재는 '전자 저울'입니다. 고유한 파편 패턴을 라이브러리와 대조하여 정체를 완벽히 식별하는 <strong>'화학적 지문 스캐너'</strong>입니다.</p>
+            <hr>
+            <h3>7. 학습 마무리: 내 시료에 맞는 검출기 선택 가이드 🏁</h3>
+            <table style="width:100%; border-collapse: collapse; margin-top: 10px;">
+                <tr style="background-color: #f2f2f2;">
+                    <th style="border: 1px solid #ddd; padding: 8px;">검출기</th>
+                    <th style="border: 1px solid #ddd; padding: 8px;">주요 대상</th>
+                    <th style="border: 1px solid #ddd; padding: 8px;">감도</th>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px;">FID</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">대부분의 유기물</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">우수</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px;">TCD</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">모든 성분</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">낮음</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px;">ECD</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">할로겐, 농약</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">초고감도</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px;">MSD</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">모든 유기물</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">매우 우수</td>
+                </tr>
+            </table>
+        `
     }
 ];
 
@@ -309,7 +408,7 @@ function renderContributionGraph() {
 
     graphContainer.innerHTML = '';
 
-    const today = new Date(2026, 1, 24); // 2월 24일로 업데이트
+    const today = new Date(2026, 1, 25); // 2월 25일로 업데이트
     const totalDays = 365;
     
     const contributionMap = {};
