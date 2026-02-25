@@ -176,33 +176,65 @@ const blogPosts = [
             <p><strong>🧬 MSD (질량 분석 검출기):</strong> 성분을 잘게 쪼개 무게(m/z)를 재는 '전자 저울'입니다. 고유한 파편 패턴을 라이브러리와 대조하여 정체를 완벽히 식별하는 <strong>'화학적 지문 스캐너'</strong>입니다.</p>
             <hr>
             <h3>7. 학습 마무리: 내 시료에 맞는 검출기 선택 가이드 🏁</h3>
-            <table style="width:100%; border-collapse: collapse; margin-top: 10px;">
+            <p>여러분의 실험 목적에 맞는 최적의 검출기를 선택할 수 있도록 핵심을 정리해 드립니다.</p>
+            <table style="width:100%; border-collapse: collapse; margin-top: 10px; font-size: 0.9em;">
                 <tr style="background-color: #f2f2f2;">
-                    <th style="border: 1px solid #ddd; padding: 8px;">검출기</th>
-                    <th style="border: 1px solid #ddd; padding: 8px;">주요 대상</th>
-                    <th style="border: 1px solid #ddd; padding: 8px;">감도</th>
+                    <th style="border: 1px solid #ddd; padding: 8px;">검출기 종류</th>
+                    <th style="border: 1px solid #ddd; padding: 8px;">카테고리</th>
+                    <th style="border: 1px solid #ddd; padding: 8px;">주요 대상 성분</th>
+                    <th style="border: 1px solid #ddd; padding: 8px;">핵심 기체/도구</th>
+                    <th style="border: 1px solid #ddd; padding: 8px;">감도 특성</th>
                 </tr>
                 <tr>
                     <td style="border: 1px solid #ddd; padding: 8px;">FID</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">범용</td>
                     <td style="border: 1px solid #ddd; padding: 8px;">대부분의 유기물</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">우수</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">수소(H<sub>2</sub>), 공기</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">우수함</td>
                 </tr>
                 <tr>
                     <td style="border: 1px solid #ddd; padding: 8px;">TCD</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">모든 성분</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">낮음</td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid #ddd; padding: 8px;">ECD</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">할로겐, 농약</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">초고감도</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">범용</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">모든 성분 (무기물 포함)</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">헬륨(He)</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">낮음 (안전함)</td>
                 </tr>
                 <tr>
                     <td style="border: 1px solid #ddd; padding: 8px;">MSD</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">범용/구조</td>
                     <td style="border: 1px solid #ddd; padding: 8px;">모든 유기물</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">매우 우수</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">NIST 라이브러리</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">매우 우수함</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px;">ECD</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">선택</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">할로겐, 농약</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">질소(N<sub>2</sub>)</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">초고감도</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px;">NPD</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">선택</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">질소(N), 인(P)</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">루비듐 염 비드</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">선택적 고감도</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px;">FPD</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">선택</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">황(S), 인(P)</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">파장 필터(394/526nm)</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">선택적 우수</td>
                 </tr>
             </table>
+            <p><strong>🌟 초보자를 위한 검출기 선택의 황금률</strong></p>
+            <ol>
+                <li>일반 유기물 전체를 보고 싶다면? 👉 <strong>FID</strong></li>
+                <li>미량의 농약이나 환경 호르몬을 추적한다면? 👉 <strong>ECD</strong> 또는 <strong>NPD</strong></li>
+                <li>성분의 정체와 구조까지 확실히 '확진'하고 싶다면? 👉 <strong>MSD</strong></li>
+            </ol>
+            <p>분석하고자 하는 물질의 성질을 먼저 파악하는 것이 성공적인 분석의 절반입니다. 여러분의 '지식의 눈'이 되어줄 검출기와 함께 정교한 분석의 세계를 경험해 보시길 응원합니다! 👏</p>
         `
     }
 ];
@@ -245,7 +277,12 @@ function renderHome() {
     const sortedPosts = [...filteredPosts].sort((a, b) => {
         const dateA = new Date(parseKoreanDate(a.date));
         const dateB = new Date(parseKoreanDate(b.date));
-        return dateB - dateA;
+        
+        if (dateB - dateA !== 0) return dateB - dateA;
+        
+        // 같은 날짜일 경우: GC 카테고리는 오름차순(ID순), 나머지는 내림차순(최신순)
+        if (currentCategory === 'GC') return a.id - b.id;
+        return b.id - a.id;
     });
 
     if (sortedPosts.length === 0) {
