@@ -261,8 +261,9 @@ const contributionSection = document.getElementById('contribution-section');
 let currentCategory = 'All';
 
 // Navigation
-function navigate(page) {
+function navigate(page, push = true) {
     if (page === 'home') {
+        currentCategory = 'All';
         renderHome();
     } else if (page === 'about') {
         renderAbout();
@@ -273,12 +274,20 @@ function navigate(page) {
     } else if (page === 'terms') {
         renderTerms();
     }
+    
+    if (push) {
+        history.pushState({ page, type: 'page' }, '', `#${page}`);
+    }
     window.scrollTo(0, 0);
 }
 
-function filterByCategory(category) {
+function filterByCategory(category, push = true) {
     currentCategory = category;
-    navigate('home');
+    renderHome();
+    if (push) {
+        history.pushState({ category, type: 'category' }, '', `#category/${category}`);
+    }
+    window.scrollTo(0, 0);
 }
 
 function renderHome() {
@@ -396,7 +405,7 @@ function renderTerms() {
     `;
 }
 
-function showPost(index) {
+function showPost(index, push = true) {
     const post = blogPosts[index];
     if (!post) return;
 
@@ -404,7 +413,7 @@ function showPost(index) {
     
     postsContainer.innerHTML = `
         <article class="full-post">
-            <a href="#" onclick="renderHome(); return false;" class="back-link">← Back to list</a>
+            <a href="#" onclick="navigate('home'); return false;" class="back-link">← Back to list</a>
             <div class="post-category-tag">${post.category}</div>
             <h1>${post.title}</h1>
             <div class="post-meta">${post.date}</div>
@@ -415,8 +424,29 @@ function showPost(index) {
         </article>
     `;
     loadDisqus(post.id, post.title);
+    
+    if (push) {
+        history.pushState({ index, type: 'post' }, '', `#post/${post.id}`);
+    }
     window.scrollTo(0, 0);
 }
+
+// Handle browser back/forward buttons
+window.addEventListener('popstate', (event) => {
+    const state = event.state;
+    if (state) {
+        if (state.type === 'page') {
+            navigate(state.page, false);
+        } else if (state.type === 'category') {
+            filterByCategory(state.category, false);
+        } else if (state.type === 'post') {
+            showPost(state.index, false);
+        }
+    } else {
+        // Default to home if no state
+        navigate('home', false);
+    }
+});
 
 function loadDisqus(postId, postTitle) {
     const disqus_shortname = 'leeblog-2'; // 제공해주신 스크립트의 shortname 적용
@@ -502,8 +532,37 @@ function renderContributionGraph() {
     }
 }
 
-// 초기 렌더링 실행
-renderHome();
+// 초기 렌더링 실행 및 초기 라우팅 처리
+function handleInitialRouting() {
+    const hash = window.location.hash;
+    if (hash.startsWith('#post/')) {
+        const postId = parseInt(hash.replace('#post/', ''));
+        const index = blogPosts.findIndex(p => p.id === postId);
+        if (index !== -1) {
+            showPost(index, false);
+            // Replace state so we have a valid state object for future back actions
+            history.replaceState({ index, type: 'post' }, '', hash);
+        } else {
+            renderHome();
+        }
+    } else if (hash.startsWith('#category/')) {
+        const category = decodeURIComponent(hash.replace('#category/', ''));
+        currentCategory = category;
+        renderHome();
+        history.replaceState({ category, type: 'category' }, '', hash);
+    } else if (hash === '#about' || hash === '#contact' || hash === '#privacy' || hash === '#terms') {
+        const page = hash.replace('#', '');
+        navigate(page, false);
+        history.replaceState({ page, type: 'page' }, '', hash);
+    } else {
+        renderHome();
+        history.replaceState({ page: 'home', type: 'page' }, '', '#home');
+    }
+}
+
 renderContributionGraph();
+handleInitialRouting();
 window.navigate = navigate; // global scope for onclick
 window.filterByCategory = filterByCategory; // global scope for onclick
+window.showPost = showPost; // global scope for onclick
+window.renderHome = renderHome; // global scope for onclick
