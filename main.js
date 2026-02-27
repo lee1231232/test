@@ -365,11 +365,14 @@ const blogPosts = [
 const postsContainer = document.getElementById('blog-posts');
 const contributionSection = document.getElementById('contribution-section');
 let currentCategory = 'All';
+let currentPage = 1;
+const postsPerPage = 5;
 
 // Navigation
 function navigate(page, push = true) {
     if (page === 'home') {
         currentCategory = 'All';
+        currentPage = 1;
         renderHome();
     } else if (page === 'about') {
         renderAbout();
@@ -389,9 +392,20 @@ function navigate(page, push = true) {
 
 function filterByCategory(category, push = true) {
     currentCategory = category;
+    currentPage = 1;
     renderHome();
     if (push) {
-        history.pushState({ category, type: 'category' }, '', `#category/${category}`);
+        history.pushState({ category, type: 'category', pageNum: 1 }, '', `#category/${category}/page/1`);
+    }
+    window.scrollTo(0, 0);
+}
+
+function changePage(pageNum, push = true) {
+    currentPage = pageNum;
+    renderHome();
+    if (push) {
+        const hash = currentCategory === 'All' ? `#home/page/${pageNum}` : `#category/${currentCategory}/page/${pageNum}`;
+        history.pushState({ category: currentCategory, type: 'category', pageNum }, '', hash);
     }
     window.scrollTo(0, 0);
 }
@@ -422,7 +436,12 @@ function renderHome() {
         return;
     }
 
-    sortedPosts.forEach((post) => {
+    // Pagination slice
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
+
+    currentPosts.forEach((post) => {
         const originalIndex = blogPosts.findIndex(p => p.id === post.id);
         const article = document.createElement('article');
         article.innerHTML = `
@@ -434,6 +453,29 @@ function renderHome() {
         `;
         postsContainer.appendChild(article);
     });
+
+    renderPagination(sortedPosts.length);
+}
+
+function renderPagination(totalPosts) {
+    const totalPages = Math.ceil(totalPosts / postsPerPage);
+    if (totalPages <= 1) return;
+
+    const paginationDiv = document.createElement('div');
+    paginationDiv.className = 'pagination';
+
+    for (let i = 1; i <= totalPages; i++) {
+        const pageBtn = document.createElement('button');
+        pageBtn.innerText = i;
+        pageBtn.className = i === currentPage ? 'active' : '';
+        pageBtn.onclick = (e) => {
+            e.preventDefault();
+            changePage(i);
+        };
+        paginationDiv.appendChild(pageBtn);
+    }
+
+    postsContainer.appendChild(paginationDiv);
 }
 
 function renderAbout() {
@@ -544,6 +586,7 @@ window.addEventListener('popstate', (event) => {
         if (state.type === 'page') {
             navigate(state.page, false);
         } else if (state.type === 'category') {
+            currentPage = state.pageNum || 1;
             filterByCategory(state.category, false);
         } else if (state.type === 'post') {
             showPost(state.index, false);
@@ -651,11 +694,25 @@ function handleInitialRouting() {
         } else {
             renderHome();
         }
+    } else if (hash.includes('/page/')) {
+        // Handle #home/page/X or #category/Y/page/X
+        const parts = hash.split('/page/');
+        const pageNum = parseInt(parts[1]) || 1;
+        currentPage = pageNum;
+        
+        if (parts[0].startsWith('#category/')) {
+            currentCategory = decodeURIComponent(parts[0].replace('#category/', ''));
+        } else {
+            currentCategory = 'All';
+        }
+        renderHome();
+        history.replaceState({ category: currentCategory, type: 'category', pageNum }, '', hash);
     } else if (hash.startsWith('#category/')) {
         const category = decodeURIComponent(hash.replace('#category/', ''));
         currentCategory = category;
+        currentPage = 1;
         renderHome();
-        history.replaceState({ category, type: 'category' }, '', hash);
+        history.replaceState({ category, type: 'category', pageNum: 1 }, '', hash);
     } else if (hash === '#about' || hash === '#contact' || hash === '#privacy' || hash === '#terms') {
         const page = hash.replace('#', '');
         navigate(page, false);
@@ -672,3 +729,4 @@ window.navigate = navigate; // global scope for onclick
 window.filterByCategory = filterByCategory; // global scope for onclick
 window.showPost = showPost; // global scope for onclick
 window.renderHome = renderHome; // global scope for onclick
+window.changePage = changePage; // global scope for onclick
