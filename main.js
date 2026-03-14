@@ -365,48 +365,49 @@ const blogPosts = [
         title: "[GC 심화] FID(불꽃 이온화 검출기) 완벽 가이드: 원리부터 최적화까지 🔥",
         date: "2026년 3월 14일",
         category: "GC",
-        excerpt: "GC에서 가장 대중적인 FID의 이온화 메커니즘, 감도에 영향을 주는 요인, 그리고 최상의 데이터를 얻기 위한 가스 유량 최적화 방법을 상세히 파헤쳐 봅니다.",
+        excerpt: "분석화학 교재 및 장비 매뉴얼을 바탕으로 FID의 이온화 메커니즘, 감도 결정 요인, 가스 유량 최적화 및 유지관리 노하우를 상세히 정리합니다.",
         content: `
             <h3>1. FID: 유기 화합물 분석의 표준</h3>
-            <p><strong>불꽃 이온화 검출기(Flame Ionization Detector, FID)</strong>는 시료를 수소-공기 불꽃에서 태울 때 발생하는 이온을 측정하는 장치입니다. 거의 모든 유기 화합물에 반응하며, 특히 탄소-수소(C-H) 결합을 가진 물질에 대해 매우 높은 감도와 넓은 직선성을 자랑합니다.</p>
+            <p><strong>불꽃 이온화 검출기(Flame Ionization Detector, FID)</strong>는 시료를 수소-공기 불꽃에서 연소시켜 발생하는 이온을 측정하는 장치입니다. 대부분의 유기 화합물에 응답하며, 특히 C–H 결합을 포함한 <strong>환원된 탄소(reduced carbon)</strong>에 대해 매우 높은 감도를 나타냅니다.</p>
+            <p>💡 <strong>핵심 특징:</strong> FID의 검출 신호(Peak Area)는 시료의 <strong>탄소 수(carbon number)</strong>에 거의 비례하며, 검출 한계는 약 10<sup>-12</sup> g/s (picogram 수준)에 달하는 초고감도 검출기입니다.</p>
             <hr>
             <h3>2. 보이지 않는 세계의 메커니즘: 이온화 과정</h3>
-            <p>FID의 핵심은 시료가 불꽃 속에서 어떻게 전기 신호로 변하는가에 있습니다.</p>
+            <p>FID의 이온화는 단순히 한 단계의 반응이 아닌, 복잡한 연속 반응(Flame Ionization process)으로 일어납니다.</p>
             <ul>
-                <li><strong>열분해:</strong> 시료가 수소 불꽃에 진입하면 높은 열에 의해 탄소 라디칼 등으로 쪼개집니다.</li>
-                <li><strong>화학 이온화:</strong> 쪼개진 탄소 성분이 산소와 반응하여 <code>CH + O → CHO<sup>+</sup> + e<sup>-</sup></code>와 같은 과정을 거쳐 이온을 생성합니다.</li>
-                <li><strong>전류 포집:</strong> 생성된 이온들은 검출기 내부의 수집 전극(Collector)으로 끌려가며 미세한 전류를 발생시킵니다. 이 전류의 크기가 곧 성분의 양(농도)이 됩니다.</li>
+                <li><strong>열분해(Pyrolysis):</strong> 시료가 수소 불꽃의 높은 열에 의해 CH, CH₂ 등 탄소 라디칼로 분해됩니다.</li>
+                <li><strong>화학 이온화:</strong> 형성된 라디칼이 산소와 반응하여 이온을 생성합니다. <code>CH + O → CHO<sup>+</sup> + e<sup>-</sup></code> 반응이 대표적이나, 실제 플라즈마 내에서는 CHO<sup>+</sup> 외에도 C<sub>3</sub>H<sub>3</sub><sup>+</sup>, H<sub>3</sub>O<sup>+</sup> 등 다양한 이온이 생성됩니다.</li>
+                <li><strong>전류 포집:</strong> 이온들이 수집 전극(Collector)에 의해 포집되어 전기 신호로 변환되며, 이 전류값이 성분의 정량 데이터가 됩니다.</li>
             </ul>
             <hr>
             <h3>3. FID의 최대 장점과 한계</h3>
             <h4>✅ 왜 FID인가?</h4>
             <ul>
-                <li><strong>압도적인 직선성:</strong> 농도 변화에 따른 신호 응답이 10<sup>7</sup> 수준까지 직선을 유지하여, 아주 적은 양부터 많은 양까지 한 번에 정확히 분석할 수 있습니다.</li>
-                <li><strong>견고함:</strong> 구조가 단순하여 유지보수가 쉽고 오염에 강합니다.</li>
-                <li><strong>수분 무반응:</strong> 수분(H<sub>2</sub>O)에는 반응하지 않아 수용액 시료 분석에도 유리합니다.</li>
+                <li><strong>넓은 직선성(Linear Dynamic Range):</strong> 약 <strong>10<sup>7</sup> 이상의 범위</strong>에서 직선성을 유지하여, 미량부터 고농도까지 정확한 분석이 가능합니다.</li>
+                <li><strong>견고함 및 안정성:</strong> 구조가 단순하여 유지보수가 용이하며, 수분(H<sub>2</sub>O)에 응답하지 않아 수용액 시료 분석 시 베이스라인이 안정적입니다.</li>
             </ul>
             <h4>⚠️ 주의해야 할 점</h4>
             <ul>
-                <li><strong>비반응 물질:</strong> H<sub>2</sub>, O<sub>2</sub>, N<sub>2</sub>, CO, CO<sub>2</sub>, 물 등 무기 가스와 일부 산화된 탄소 화합물에는 반응하지 않거나 감도가 매우 낮습니다.</li>
-                <li><strong>파괴적 분석:</strong> 시료를 불꽃으로 태워버리므로, 검출기를 통과한 시료를 다시 회수할 수 없습니다.</li>
+                <li><strong>거의 반응하지 않는 물질:</strong> H<sub>2</sub>, O<sub>2</sub>, N<sub>2</sub>, CO<sub>2</sub>, H<sub>2</sub>O 등 무기 가스에는 응답하지 않습니다. 단, <strong>CO(일산화탄소)</strong>는 매우 약한 응답을 보일 수 있습니다.</li>
+                <li><strong>파괴적 분석:</strong> 시료가 불꽃에서 연소되므로 검출기 통과 후 시료를 회수할 수 없습니다.</li>
             </ul>
             <hr>
             <h3>4. 데이터 품질을 결정하는 '가스 유량 최적화'</h3>
-            <p>FID의 감도는 공급되는 기체들의 비율에 따라 달라집니다. 일반적으로 권장되는 비율은 다음과 같습니다.</p>
+            <p>FID의 감도는 가스 혼합 비율에 크게 의존합니다. 일반적인 권장 범위는 다음과 같습니다.</p>
             <ul>
-                <li><strong>수소(H<sub>2</sub>):</strong> 약 30~40 mL/min (불꽃의 연료)</li>
-                <li><strong>공기(Air):</strong> 약 300~450 mL/min (산화제, 수소 유량의 약 10배)</li>
-                <li><strong>보조 기체(Make-up Gas):</strong> 약 25~30 mL/min (피크 모양 개선 및 이온 이동 속도 조절)</li>
+                <li><strong>수소(H<sub>2</sub>):</strong> 30~40 mL/min (불꽃의 연료)</li>
+                <li><strong>공기(Air):</strong> 300~450 mL/min (산화제, 수소 유량의 약 10배)</li>
+                <li><strong>보조 기체(Make-up Gas):</strong> 25~30 mL/min</li>
             </ul>
-            <p>💡 <strong>Tip:</strong> 감도가 갑자기 떨어졌다면 가스 실린더의 잔량이나 유량 컨트롤러의 설정을 가장 먼저 확인하세요. 수소와 공기의 비율이 깨지면 이온화 효율이 급격히 저하됩니다.</p>
+            <p>💡 <strong>전문가 Tip:</strong> Make-up gas 유량은 사용 중인 Column의 직경(ID)과 Carrier gas 조건에 따라 최적값이 달라질 수 있습니다. 피크 모양이 퍼진다면 유량을 미세 조정해 보세요.</p>
             <hr>
-            <h3>5. 일상적인 유지관리(Maintenance)</h3>
-            <ol>
-                <li><strong>Collector 청소:</strong> 장기간 사용 시 연소 부산물(실리카 찌꺼기 등)이 쌓여 노이즈를 유발할 수 있습니다. 주기적으로 세척하거나 교체해야 합니다.</li>
-                <li><strong>Jet 점검:</strong> 주입구가 막히거나 오염되면 불꽃이 잘 켜지지 않거나 피크가 흔들립니다. 전용 세정 도구로 통로를 확보해 주세요.</li>
-                <li><strong>점화 장치(Ignitor):</strong> 글로우 플러그가 제대로 가열되는지 확인하세요.</li>
-            </ol>
-            <p>FID는 단순해 보이지만 깊이 알수록 강력한 도구입니다. 원리를 정확히 이해하고 최적의 가스 조건을 유지한다면, 여러분의 실험 데이터는 한층 더 신뢰받게 될 것입니다. 분석 중 궁금한 점이 있다면 언제든 댓글로 남겨주세요! 🚀</p>
+            <h3>5. 유지관리 및 트러블슈팅 Checklist</h3>
+            <p>정확한 데이터는 철저한 관리에서 시작됩니다.</p>
+            <ul>
+                <li><strong>Baseline Noise 증가:</strong> Collector가 연소 부산물(Silica 등)에 의해 오염되었을 가능성이 큽니다. 주기적인 세척이 필요합니다.</li>
+                <li><strong>점화 실패(Ignition Failure):</strong> H<sub>2</sub>/Air 비율이 맞지 않거나, Jet이 막혔을 때, 또는 Ignitor(글로우 플러그) 수명이 다했을 때 발생합니다.</li>
+                <li><strong>감도 저하:</strong> 가스 실린더 잔량, 유량 컨트롤러 설정, 주입구(Inlet) 누설 여부를 가장 먼저 확인하세요.</li>
+            </ul>
+            <p>기술적 정확성을 갖춘 FID 지식은 분석 결과의 신뢰도를 높이는 가장 강력한 무기입니다. 원리에 기반한 최적화로 최상의 크로마토그램을 얻으시길 바랍니다! 🚀</p>
         `
     }
 ];
