@@ -497,6 +497,45 @@ const blogPosts = [
             </div>
             <p>직류와 교류의 조화 덕분에 우리는 안전하고 효율적으로 전기를 사용할 수 있습니다. 다음 포스트에서는 이 전기를 안전하게 제어하는 '반도체'의 기초에 대해 알아보겠습니다! ⚡</p>
         `
+    },
+    {
+        id: 16,
+        title: "[기초 전자공학] 반도체란 무엇인가? 도체와 부도체 사이의 마법 🧙‍♂️",
+        date: "2026년 3월 14일",
+        category: "Electronics",
+        excerpt: "전기가 흐르기도 하고 안 흐르기도 하는 신비한 물질, 반도체! 현대 전자 문명의 쌀이라 불리는 반도체의 기본 원리와 P형, N형의 차이를 쉽게 설명해 드립니다.",
+        content: `
+            <h3>1. 전기가 흐르는 능력에 따른 분류</h3>
+            <p>세상의 모든 물질은 전기를 얼마나 잘 전달하느냐에 따라 세 가지로 나뉩니다.</p>
+            <ul>
+                <li><strong>도체 (Conductor):</strong> 전기가 매우 잘 흐르는 물질 (예: 구리, 금, 철)</li>
+                <li><strong>부도체 (Insulator):</strong> 전기가 거의 흐르지 않는 물질 (예: 고무, 유리, 플라스틱)</li>
+                <li><strong>반도체 (Semiconductor):</strong> 도체와 부도체의 중간 성질을 가진 물질 (예: 실리콘(Si), 게르마늄(Ge))</li>
+            </ul>
+            <hr>
+            <h3>2. 반도체의 핵심 원리: 에너지 밴드 갭</h3>
+            <p>반도체가 특별한 이유는 외부 자극(열, 빛, 전압)에 따라 <strong>'상태를 바꿀 수 있다'</strong>는 점에 있습니다.</p>
+            <ul>
+                <li>원자 내부에는 전자가 존재할 수 있는 구역(가전자대)과 자유롭게 움직일 수 있는 구역(전도대)이 있습니다.</li>
+                <li>도체는 두 구역이 겹쳐 있어 전자가 자유롭게 움직이지만, 부도체는 사이 간격(밴드 갭)이 너무 넓어 전자가 넘어가지 못합니다.</li>
+                <li><strong>반도체는 이 간격이 적당합니다!</strong> 그래서 우리가 원할 때 전자를 위로 올려보내 전기를 흐르게 조절할 수 있습니다.</li>
+            </ul>
+            <hr>
+            <h3>3. P형과 N형: 불순물로 마법 부리기 (도핑)</h3>
+            <p>순수한 실리콘은 전기가 잘 흐르지 않습니다. 여기에 특정 물질을 살짝 섞어 성능을 극대화하는 과정을 <strong>도핑(Doping)</strong>이라고 합니다.</p>
+            <ul>
+                <li><strong>N형 (Negative) 반도체:</strong> 실리콘에 인(P)처럼 전자가 많은 물질을 섞어, <strong>남는 전자</strong>가 전기를 나르게 합니다.</li>
+                <li><strong>P형 (Positive) 반도체:</strong> 실리콘에 붕소(B)처럼 전자가 부족한 물질을 섞어, 전자의 빈자리인 <strong>정공(Hole)</strong>이 전기를 나르게 합니다.</li>
+            </ul>
+            <hr>
+            <h3>4. 현대 문명의 쌀, 반도체</h3>
+            <p>P형과 N형 반도체를 붙이면 전기를 한 방향으로만 흐르게 하는 <strong>다이오드</strong>가 되고, 이를 더 복잡하게 쌓으면 신호를 증폭하거나 스위치 역할을 하는 <strong>트랜지스터</strong>가 됩니다.</p>
+            <p>이 트랜지스터 수십억 개를 손톱만 한 칩에 집어넣은 것이 바로 스마트폰과 컴퓨터의 두뇌인 CPU입니다. 반도체가 없다면 현대의 인공지능(AI), 인터넷, 스마트폰도 존재할 수 없었을 것입니다.</p>
+            <div style="background-color: var(--card-bg); padding: 15px; border-left: 5px solid var(--accent-color); margin: 10px 0;">
+                <p style="margin: 0;"><strong>🔍 다음 예고:</strong> P형과 N형이 만나면 어떤 일이 벌어질까요? 모든 전자 회로의 시작, <strong>'PN 접합과 다이오드'</strong>에 대해 알아보겠습니다.</p>
+            </div>
+            <p>반도체는 단순히 '부품'이 아니라, 인류가 전기를 완벽하게 통제할 수 있게 해준 위대한 발명품입니다. 원리를 알고 나면 주변의 가전제품이 조금은 다르게 보일 거예요! 💻✨</p>
+        `
     }
 ];
 
@@ -850,7 +889,7 @@ function handleInitialRouting() {
         currentCategory = category;
         currentPage = 1;
         renderHome();
-        history.replaceState({ category, type: 'category', pageNum: 1 }, '', hash);
+        history.replaceState({ category: currentCategory, type: 'category', pageNum: 1 }, '', hash);
     } else if (hash === '#about' || hash === '#contact' || hash === '#privacy' || hash === '#terms') {
         const page = hash.replace('#', '');
         navigate(page, false);
