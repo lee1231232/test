@@ -409,6 +409,56 @@ const blogPosts = [
             </ul>
             <p>기술적 정확성을 갖춘 FID 지식은 분석 결과의 신뢰도를 높이는 가장 강력한 무기입니다. 원리에 기반한 최적화로 최상의 크로마토그램을 얻으시길 바랍니다! 🚀</p>
         `
+    },
+    {
+        id: 14,
+        title: "[기초 전자공학] 회로의 3요소: 전압, 전류, 저항 완벽 이해하기 ⚡",
+        date: "2026년 3월 14일",
+        category: "Electronics",
+        excerpt: "전기 회로를 이해하기 위한 가장 기본적이고 중요한 세 가지 개념인 전압(V), 전류(I), 저항(R)의 정의와 이들의 관계를 설명하는 옴의 법칙을 알아봅니다.",
+        content: `
+            <h3>1. 전압 (Voltage, V): 전기의 압력</h3>
+            <p><strong>전압</strong>은 회로에서 전하를 흐르게 하는 '압력'과 같습니다. 폭포의 높이가 높을수록 물이 세게 떨어지는 것처럼, 전압이 높을수록 더 많은 전기를 흐르게 할 수 있는 잠재력이 커집니다.</p>
+            <ul>
+                <li><strong>단위:</strong> 볼트 (Volt, [V])</li>
+                <li><strong>비유:</strong> 수압 (Water Pressure)</li>
+            </ul>
+            <hr>
+            <h3>2. 전류 (Current, I): 전하의 흐름</h3>
+            <p><strong>전류</strong>는 회로를 통해 실제로 흐르는 전하의 양을 말합니다. 물이 파이프를 따라 흐르는 것과 같으며, 전자가 일정한 방향으로 이동하는 현상입니다.</p>
+            <ul>
+                <li><strong>단위:</strong> 암페어 (Ampere, [A])</li>
+                <li><strong>비유:</strong> 물의 유량 (Water Flow)</li>
+            </ul>
+            <hr>
+            <h3>3. 저항 (Resistance, R): 흐름을 방해하는 힘</h3>
+            <p><strong>저항</strong>은 전류의 흐름을 방해하는 성질입니다. 파이프가 좁거나 거칠면 물이 잘 흐르지 못하는 것처럼, 저항이 클수록 전류는 적게 흐르게 됩니다.</p>
+            <ul>
+                <li><strong>단위:</strong> 옴 (Ohm, [Ω])</li>
+                <li><strong>비유:</strong> 파이프의 굵기나 거칠기</li>
+            </ul>
+            <hr>
+            <h3>4. 핵심 공식: 옴의 법칙 (Ohm's Law)</h3>
+            <p>독일의 물리학자 게오르크 옴이 발견한 이 법칙은 전기 회로 설계의 가장 기초가 되는 공식입니다.</p>
+            <div style="background-color: var(--card-bg); padding: 15px; border-left: 5px solid var(--accent-color); margin: 10px 0;">
+                <h4 style="margin-top: 0;">V = I × R</h4>
+                <p style="margin-bottom: 0;">전압은 전류와 저항의 곱과 같다.</p>
+            </div>
+            <ul>
+                <li><strong>I = V / R :</strong> 전압이 일정할 때, 저항이 커지면 전류는 줄어듭니다.</li>
+                <li><strong>R = V / I :</strong> 같은 전압에서 전류를 많이 흐르게 하려면 저항을 낮춰야 합니다.</li>
+            </ul>
+            <p>💡 <strong>연습 문제:</strong> 9V 배터리에 300Ω 저항을 연결하면 회로에 흐르는 전류는 얼마일까요? (정답: 9 / 300 = 0.03A, 즉 30mA)</p>
+            <hr>
+            <h3>5. 기초 소자 가이드</h3>
+            <p>회로를 구성하는 가장 기본적인 수동 소자 3인방입니다.</p>
+            <ul>
+                <li><strong>저항기 (Resistor):</strong> 전류의 세기를 조절하거나 전압을 나누는 역할</li>
+                <li><strong>축전기 (Capacitor):</strong> 전하를 저장했다가 방출하며, 노이즈 제거 및 에너지 저장 역할</li>
+                <li><strong>인덕터 (Inductor):</strong> 자기장 형태로 에너지를 저장하며, 급격한 전류 변화를 억제하는 역할</li>
+            </ul>
+            <p>전기의 기본 원리를 이해하면 스마트폰부터 자동차까지 우리 주변의 모든 전자 기기의 작동 방식을 이해하는 첫걸음을 뗀 것입니다! 🔌</p>
+        `
     }
 ];
 
